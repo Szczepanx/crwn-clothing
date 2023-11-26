@@ -1,9 +1,10 @@
-import Categories from "./components/categories/categories.component";
+import Directory from "./components/directory/directory.component";
+import categories from "./categories.json";
 
 const App = () => {
   return (
     <div>
-      <Categories />
+      <Directory categories={categories} />
     </div>
   );
 };
