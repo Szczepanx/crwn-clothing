@@ -29,7 +29,7 @@ const SignUpForm = () => {
         email,
         password
       );
-      const userDocRef = await createUserDocumentFromAuth({
+      await createUserDocumentFromAuth({
         ...user,
         displayName,
       });
