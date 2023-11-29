@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in-form.styles.jsx";
 import {
-  createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthWithdEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
@@ -14,6 +13,8 @@ const defaultFormFields = {
   password: "",
 };
 
+const aaa = BUTTON_TYPE_CLASSES;
+console.log(aaa);
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -66,7 +67,7 @@ const SignInForm = () => {
           <Button type="submit">SIGN IN</Button>
           <Button
             type="button"
-            buttonType={"google"}
+            buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={signInWithGoogle}
           >
             GOOGLE SIGN IN

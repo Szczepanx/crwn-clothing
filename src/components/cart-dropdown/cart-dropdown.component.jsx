@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import {
   CartDropdownContainer,
   CartDroptownItems,
+  EmptyMessage,
 } from "./cart-dropdown.styles";
 
 const CartDropdown = () => {
@@ -20,9 +21,11 @@ const CartDropdown = () => {
   return (
     <CartDropdownContainer>
       <CartDroptownItems>
-        {cartItems.map((item) => (
-          <CartItem key={item.id} cartItem={item} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+        ) : (
+          <EmptyMessage>Your cart is empty</EmptyMessage>
+        )}
       </CartDroptownItems>
       <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
     </CartDropdownContainer>
