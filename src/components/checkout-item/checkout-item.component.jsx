@@ -3,11 +3,11 @@ import "./checkout-item.styles.scss";
 import { CartContext } from "../../context/cart.context";
 
 const CheckoutItem = ({ cartItem }) => {
-  const { deleteItemFromCart, removeItemFromCart, addItemToCart } =
+  const { deleteItemsFromCart, removeItemFromCart, addItemToCart } =
     useContext(CartContext);
 
   const deleteItemHandler = () => {
-    deleteItemFromCart(cartItem);
+    deleteItemsFromCart(cartItem);
   };
   const removeItemHandler = () => {
     removeItemFromCart(cartItem);
