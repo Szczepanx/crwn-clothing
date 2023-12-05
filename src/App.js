@@ -8,11 +8,9 @@ import Checkout from "./routes/checkout/checkout.component";
 import { useEffect } from "react";
 import {
   createUserDocumentFromAuth,
-  getCategoriesAndDocuments,
   onAuthStateChangedListener,
 } from "./utils/firebase/firebase.utils";
 import { setCurrentUser } from "./store/user/user.action";
-import { setCategoriesMap } from "./store/categories/categories.action";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,14 +22,6 @@ const App = () => {
       dispatch(setCurrentUser(user));
     });
     return unsubscribe;
-  }, [dispatch]);
-
-  useEffect(() => {
-    const getCategories = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      dispatch(setCategoriesMap(categoryMap));
-    };
-    getCategories();
   }, [dispatch]);
 
   return (
